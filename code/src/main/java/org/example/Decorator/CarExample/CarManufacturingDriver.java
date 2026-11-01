@@ -1,0 +1,23 @@
+package org.example.Decorator.CarExample;
+
+public class CarManufacturingDriver {
+
+    public static void main(String[] args) {
+        Car basicCar = new BasicCar();
+
+        Car sportsCar = new SportsCar(basicCar);
+        sportsCar.assemble();
+        System.out.println("\n*****");
+
+        Car sportsLuxuryCar = new LuxuryCar(new SportsCar(basicCar));
+        sportsLuxuryCar.assemble();
+
+        System.out.println("\n*****");
+
+        Car basic = new BasicCar();
+        Car sportDec = new SportsCar(basic);
+        Car luxuryDec = new LuxuryCar(sportDec);
+        luxuryDec.assemble();
+    }
+
+}
